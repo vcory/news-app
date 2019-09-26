@@ -9,8 +9,9 @@ console.log(__dirname)
 
 
 app.get('/news', async (req,res)=>{
+    //call main passing in using query and returning the title of first article related to query
     let data = await main(req.query.newsQuery)
-    // console.log(`newsQuery in app.get in server.js is ${newsQuery}`)
+    //send data to front end
     res.send(data)
 })
 
