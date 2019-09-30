@@ -6,13 +6,16 @@ html, body {
 
 #wrapper {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     text-align: center;
     flex-direction: column;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 100vw;
+    height: 100vh;
+
+    overflow: scroll;
 }
 
 #wrapper::before {
@@ -51,7 +54,6 @@ img {
     background-color: rgb(243, 253, 197);
     
 }
-
 .news-container {
     margin-top: 10px;
     display: flex;
