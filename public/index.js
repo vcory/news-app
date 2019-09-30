@@ -17,27 +17,27 @@ button.addEventListener('click', async ()=>{
     console.log("set data")
     console.log(data)
 
-    // if(divArr){
-    //     document.body.removeChild( divArr );
-    // }
+    let elements = document.getElementsByClassName("reload");
 
+    while (elements[0]) {
+        elements[0].parentNode.removeChild(elements[0]);
+    }
 
     let imgArr=[]
     let titleArr=[]
-    let divArr=document.createElement('div')
     for(i=0;i<data.length;i++){
         titleArr[i] = document.createElement('h1')
         titleArr[i].textContent = data[i].title
-        titleArr[i].className='title'
+        titleArr[i].className='title reload'
         wrapper.appendChild(titleArr[i])
         let link = document.createElement('a')
         link.href=data[i].articleURL
         imgArr[i] = document.createElement('img')
         imgArr[i].src = data[i].imageURL
-        imgArr[i].className="image"
+        imgArr[i].className="image reload"
         wrapper.appendChild(link)
         link.appendChild(imgArr[i])
     }
-    document.body.appendChild(wrapper)
+
 
 })
