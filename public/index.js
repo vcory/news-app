@@ -1,6 +1,7 @@
 const title = document.getElementById("title")
 const button = document.getElementById('button')
 const inputQuery = document.getElementById('inputQuery')
+const wrapper = document.getElementById('wrapper')
 
 //when button is clicked
 button.addEventListener('click', async ()=>{
@@ -28,15 +29,15 @@ button.addEventListener('click', async ()=>{
         titleArr[i] = document.createElement('h1')
         titleArr[i].textContent = data[i].title
         titleArr[i].className='title'
-        divArr.appendChild(titleArr[i])
+        wrapper.appendChild(titleArr[i])
         let link = document.createElement('a')
         link.href=data[i].articleURL
         imgArr[i] = document.createElement('img')
         imgArr[i].src = data[i].imageURL
         imgArr[i].className="image"
-        divArr.appendChild(link)
+        wrapper.appendChild(link)
         link.appendChild(imgArr[i])
     }
-    document.body.appendChild(divArr)
+    document.body.appendChild(wrapper)
 
 })
