@@ -40,6 +40,14 @@ img {
     background-color: white;
     border-radius: 30%;
     border-color: black;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#button:hover {
+    background-color: #5B616A;
+    color: white;
+   
 }
 #app-title {
     font-size: 60px;
