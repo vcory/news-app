@@ -1,3 +1,5 @@
+import { strict } from "assert"
+
 const title = document.getElementById("title")
 const button = document.getElementById('button')
 const inputQuery = document.getElementById('inputQuery')
