@@ -1,16 +1,12 @@
 const title = document.getElementById("title")
 const button = document.getElementById('button')
 const inputQuery = document.getElementById('inputQuery')
-const newsTitle = document.getElementById('News-Title')
-const newsAuthor = document.getElementById('News-Author')
-const newsPublished = document.getElementById('News-Published')
-const newsDescr = document.getElementById('News-Description')
-const newsImage = document.getElementById('News-Image')
-const newsLink = document.getElementById('News-Link')
 
 //when button is clicked
 button.addEventListener('click', async ()=>{
 
+    console.log("loading")
+    
     // passes the query to the server and stores what as returned as response
     let response = await fetch(`http://localhost:3003/news?newsQuery=${inputQuery.value}`)
     console.log("entered query")
@@ -19,11 +15,28 @@ button.addEventListener('click', async ()=>{
     let data = await response.json()
     console.log("set data")
     console.log(data)
-    //let the newsTitle be set the data that has been returned
-    newsTitle.textContent = data.title
-    newsAuthor.textContent = data.author
-    newsPublished.textContent = data.published
-    newsDescr.textContent = data.descr
-    newsImage.src = data.imageURL
-    newsLink.textContent = data.articleURL
+
+    // if(divArr){
+    //     document.body.removeChild( divArr );
+    // }
+
+
+    let imgArr=[]
+    let titleArr=[]
+    let divArr=document.createElement('div')
+    for(i=0;i<data.length;i++){
+        titleArr[i] = document.createElement('h1')
+        titleArr[i].textContent = data[i].title
+        titleArr[i].className='title'
+        divArr.appendChild(titleArr[i])
+        let link = document.createElement('a')
+        link.href=data[i].articleURL
+        imgArr[i] = document.createElement('img')
+        imgArr[i].src = data[i].imageURL
+        imgArr[i].className="image"
+        divArr.appendChild(link)
+        link.appendChild(imgArr[i])
+    }
+    document.body.appendChild(divArr)
+
 })
